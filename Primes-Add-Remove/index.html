@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Lab 1</title>
+</head>
+<body>
+  <h1>Add and Remove</h1>
+  <div class="box">
+    <button class="button button-add" id="add">Add</button>
+    <button class="button button-remove" id="remove">Remove</button>
+  </div>
+  <div class="wrapper">
+    <div class="card"></div>
+  </div>
+  <script type="text/javascript" src="index.js"></script>
+  <script>
+    setInterval(() => {
+      const rnds = [],
+            arr = ['😛','😱','👻','💀','😀','🙄','🦍']
+
+      for (let i = 0; i < 6; i++) {
+        rnds[i] = 0 | Math.random() * 10 
+        if (rnds[i] > 6) rnds[i] -= 4
+      }
+
+      document.title = `Lab 1 - ${arr[rnds[0]]} - ${arr[rnds[1]]} - ${arr[rnds[2]]} - ${arr[rnds[3]]} - ${arr[rnds[4]]} - ${arr[rnds[5]]}`
+
+    }, 1000);
+  </script>
+</body>
+</html>

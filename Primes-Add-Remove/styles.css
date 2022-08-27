@@ -1,0 +1,57 @@
+:root{
+  --orange: #f44
+}
+* {
+  box-sizing: border-box
+}
+
+body{
+  margin:0;
+  color: #fc8;
+  background-color: #2C3333;
+  text-align: center;
+}
+
+button{
+  text-decoration: none;
+  background-color: aquamarine;
+  border: none;
+  border-radius: 10%;
+  font-weight: bolder;
+}
+
+.box{
+  display: flex;
+  margin-bottom: 4rem;
+}
+.button{
+  padding: 1rem 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 5%;
+  margin-right: 5%
+}
+
+.card{
+  padding: 2rem;
+  border-style: solid;
+  background-color: #9b336e;
+  transition: .5s;
+}
+
+.card:hover{
+  transform: scale(2);
+  cursor: pointer;
+}
+
+.card:active{
+  background-color: var(--orange)
+}
