@@ -9,24 +9,34 @@ body{
   font-family: monospace;
   margin:0;
   color: #fc8;
-  background-color: #2C3333;
+  background-color: #121212;
   text-align: center;
   font-size: 2rem;
 }
 
 button{
+  color: #fc8;
   text-decoration: none;
-  background-color: aquamarine;
+  background-color: #121212;
   border-style: solid;
   border-width: 4px;
   border-color: #fc8;
   font-weight: bolder;
   font-size: 2rem;
+  transition-duration: 0.5s
 }
 
 h2{
   margin-top: 2rem;
   color: #f44;
+}
+
+button:hover{
+  border-color: #f44
+}
+
+button:active{
+  color: #f44
 }
 
 .box{
@@ -43,17 +53,6 @@ h2{
 .button-remove-all{
   padding: .5rem;
   font-size: 1.5rem;
-  background-color: #f44
-}
-
-.button-primes:active,
-.button-remove-all:active{
-  color: #f44
-}
-
-.button-add:active,
-.button-remove:active{
-  color: #fc8
 }
 
 .wrapper{
@@ -68,7 +67,7 @@ h2{
 .card{
   padding: 2rem;
   border-style: solid;
-  background-color: #9b336e;
+  background-color: #414ac9;
   transition-property: all;
   transition-duration: 1s;
   opacity: 1;
@@ -80,7 +79,25 @@ h2{
   background-color: var(--orange)
 }
 
+.info{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+
+.info + p{
+  padding: .3rem
+}
+
 #footer{
   margin-top: 5rem;
-  font-size: 2rem
+  font-size: 2rem;
+}
+
+.info,
+#footer{
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #414ac9;
+  border: solid 5px #fc8
 }
