@@ -11,25 +11,35 @@
   <h1>Add and Remove</h1>
   <div class="box">
     <button class="button button-add" id="add">Add</button>
+    <button class="button button-primes" id="primesBtn">Find Primes</button>
     <button class="button button-remove" id="remove">Remove</button>
+    <button class="button button-remove-all" id="removeAll">Remove All</button>
   </div>
   <div class="wrapper">
     <div class="card"></div>
   </div>
+  <h2>Orange: prime numbers</h2>
+  <footer id="footer">
+
+  </footer>
   <script type="text/javascript" src="index.js"></script>
   <script>
-    setInterval(() => {
-      const rnds = [],
-            arr = ['😛','😱','👻','💀','😀','🙄','🦍']
+    const $footer = document.getElementById('footer'),
+          rnds = [],
+          arr = ['😛','😱','👻','💀','😀','🙄','🦍']
+    
+    let emojiContent = 'Lab 1'
 
+    setInterval(() => {
       for (let i = 0; i < 6; i++) {
         rnds[i] = 0 | Math.random() * 10 
         if (rnds[i] > 6) rnds[i] -= 4
       }
-
-      document.title = `Lab 1 - ${arr[rnds[0]]} - ${arr[rnds[1]]} - ${arr[rnds[2]]} - ${arr[rnds[3]]} - ${arr[rnds[4]]} - ${arr[rnds[5]]}`
-
+      
+      $footer.textContent = emojiContent
+      
+      emojiContent = `Lab 1 - ${arr[rnds[0]]} - ${arr[rnds[1]]} - ${arr[rnds[2]]} - ${arr[rnds[3]]} - ${arr[rnds[4]]} - ${arr[rnds[5]]}`
     }, 1000);
-  </script>
+    </script>
 </body>
 </html>

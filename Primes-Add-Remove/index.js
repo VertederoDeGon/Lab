@@ -1,4 +1,6 @@
-const $buttonAdd = document.getElementById('add'),
+const $btnRemoveAll = document.getElementById('removeAll'),
+      $btnPrime = document.getElementById('primesBtn'),
+      $buttonAdd = document.getElementById('add'),
       $buttonRemove = document.getElementById('remove'),
       $wrapper = document.querySelector('.wrapper'),
       $card = document.querySelector('.card'),
@@ -12,37 +14,72 @@ const $buttonAdd = document.getElementById('add'),
         
         for (let i = 0; i < n; i++) if(arr[i] === false) coun++
       
-        if(coun === 2) return true
+        if((coun === 2) || (n === 1) || (n === 2)) return true
         
         return false
       }
-      
-$card.append(0 | Math.random()*100) //todo
+
+let $cards = document.querySelectorAll('card'),
+    $lastItemCard = $cards.item($cards.length - 1),
+    $newCard = $card.cloneNode()
+
+function addCardAnimate($newCard, rnd){
+  $newCard.style.transitionDuration = '.3s'
+  $newCard.style.opacity = "0"
+  setTimeout(() => {
+    $newCard.style.opacity = '100'
+    $newCard.append(rnd)
+  }, 300)
+}
+
+function removeCardAnimate($lastItemCard){
+  $lastItemCard.style.transitionDuration = '.2s'
+  $lastItemCard.style.opacity = "0"
+  setTimeout(() => {
+    $lastItemCard.remove()
+  }, 200)
+}
+
+$card.append(0 | Math.random()*100)
 
 $buttonAdd.addEventListener('click', () => {
-  let $newCard = $card.cloneNode(),
-      rnd = 0 | Math.random() * 100
-
+  let rnd = 0 | Math.random() * 100
+  
+  $newCard = $card.cloneNode()
+  
+  addCardAnimate($newCard, rnd)
+  
   $wrapper.insertAdjacentElement('beforeend', $newCard)
+})
 
-  $newCard.append(rnd)
+$btnPrime.addEventListener('click', () => {
+  $cards = document.querySelectorAll('.card')
+  $lastItemCard = $cards.item($cards.length - 1)
+
+  if ($lastItemCard !== null){
+    $cards.forEach($card => {
+      if (isPrime(parseInt($card.textContent))){
+        $card.style.color = '#f44'
+        $card.style.setProperty('--orange', '#fc8')
+      }
+    })
+  }
 })
 
 $buttonRemove.addEventListener('click', () => {
-  let $removeCard = document.querySelectorAll('.card')
-
-  if ($removeCard.item($removeCard.length - 1) !== null)
-    $removeCard.item($removeCard.length - 1).remove()
-})
-
-setInterval(() => {
   let $cards = document.querySelectorAll('.card'),
       $lastItemCard = $cards.item($cards.length - 1)
 
-  if ($lastItemCard !== null){
-    if (isPrime(arr[arr.length - 1])){
-      $lastItemCard.style.color = '#f44'
-      $lastItemCard.style.setProperty('--orange', '#fc8')
-    }
+  if ($lastItemCard !== null) {
+    removeCardAnimate($lastItemCard)
   }
-}, 200)
+})
+
+$btnRemoveAll.addEventListener('dblclick', () => {
+  $lastItemCard = $cards.item($cards.length - 1)
+
+  if ($lastItemCard !== null) {
+    $cards = document.querySelectorAll('.card')
+    $cards.forEach($card => $card.remove())
+  }
+})

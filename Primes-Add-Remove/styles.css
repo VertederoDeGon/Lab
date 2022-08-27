@@ -6,18 +6,27 @@
 }
 
 body{
+  font-family: monospace;
   margin:0;
   color: #fc8;
   background-color: #2C3333;
   text-align: center;
+  font-size: 2rem;
 }
 
 button{
   text-decoration: none;
   background-color: aquamarine;
-  border: none;
-  border-radius: 10%;
+  border-style: solid;
+  border-width: 4px;
+  border-color: #fc8;
   font-weight: bolder;
+  font-size: 2rem;
+}
+
+h2{
+  margin-top: 2rem;
+  color: #f44;
 }
 
 .box{
@@ -31,27 +40,47 @@ button{
   cursor: pointer;
 }
 
+.button-remove-all{
+  padding: .5rem;
+  font-size: 1.5rem;
+  background-color: #f44
+}
+
+.button-primes:active,
+.button-remove-all:active{
+  color: #f44
+}
+
+.button-add:active,
+.button-remove:active{
+  color: #fc8
+}
+
 .wrapper{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-start;
   margin-left: 5%;
-  margin-right: 5%
+  margin-right: 5%;
 }
 
 .card{
   padding: 2rem;
   border-style: solid;
   background-color: #9b336e;
-  transition: .5s;
+  transition-property: all;
+  transition-duration: 1s;
+  opacity: 1;
 }
 
 .card:hover{
   transform: scale(2);
   cursor: pointer;
+  background-color: var(--orange)
 }
 
-.card:active{
-  background-color: var(--orange)
+#footer{
+  margin-top: 5rem;
+  font-size: 2rem
 }
