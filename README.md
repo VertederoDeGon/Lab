@@ -1,3 +1,3 @@
-��#� �L�a�b�-�r�a�t�s��
+<h1>LAB-RATS</h1
 <ul></ul>
-<li><a href="_blank">https://vertederodegon.github.io/Lab/Primes-Add-Remove/index.html</a></li>
+<li>https://vertederodegon.github.io/Lab/Primes-Add-Remove/index.html</li>
